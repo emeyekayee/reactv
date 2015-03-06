@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'scheduled_resource'
 
 # The view experiment...
-gem 'react-rails' # , github: 'reactjs/react-rails', branch: 'master'
+gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'

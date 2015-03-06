@@ -7,7 +7,8 @@ class ScheduleController < ApplicationController
   before_action :ensure_schedule_config
 
 
-  # Returns angularjs page (template) which in turn fetches data.
+  # Returns trivial react page w/ layout application.html.erb which
+  # in turn fetches data.
   def index
   end
 
