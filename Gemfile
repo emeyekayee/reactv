@@ -14,6 +14,16 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+# My gem...
+gem 'scheduled_resource'
+
+# The view experiment...
+gem 'react-rails' # , github: 'reactjs/react-rails', branch: 'master'
+
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

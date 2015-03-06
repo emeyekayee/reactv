@@ -1,0 +1,27 @@
+
+# Configuration file for ScheduledResource schedule widget.
+#
+
+# Classes that represent a resource and resource-use pair.
+ResourceKinds:
+# Resource:             Resource Use
+  ZTimeHeaderDay:       ZTimeLabelDay
+  ZTimeHeaderHour:      ZTimeLabelHour
+
+# Other examples:
+# ConferenceRoom:       Meeting
+# TvStation:            ProgramEvent
+
+# The schedule display sizes itself to the page width.  What span
+# of time should this be in seconds?  (Value string is eval'd)
+visibleTime: 3.hours
+
+# A row in the display is specified by a pair: (Resource_class, Resource_id)
+# The Resource_id is given as a string to be interpreted by the specific
+# classes.  For the included ZTime* classes the Resource_id (rid) indicates
+# the timezone, [-8 .. -5] represent Pacific .. Eastern US timezones.
+Resources:
+   - ZTimeHeaderDay       -8
+   - ZTimeHeaderHour      -8
+   - ZTimeHeaderDay       -5
+   - ZTimeHeaderHour      -5
