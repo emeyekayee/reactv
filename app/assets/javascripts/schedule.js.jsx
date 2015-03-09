@@ -129,10 +129,10 @@ var ScheduleContainer = React.createClass({
     var rsrcs = this.state.rsrcs;
 
     return (
-      <div className="schedule-container">
-        <LabelsContainer    sched={self}  rsrcs={rsrcs} />
-        <TimespansContainer sched={self}  rsrcs={rsrcs} />
-      </div>
+        <div id="schedule-container">
+          <LabelsContainer    sched={self}  rsrcs={rsrcs} />
+          <TimespansContainer sched={self}  rsrcs={rsrcs} />
+        </div>
     );
   //    <CommentForm onCommentSubmit={this.handleCommentSubmit} />
   },

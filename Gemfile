@@ -20,7 +20,7 @@ gem 'scheduled_resource'
 # The view experiment...
 gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
 
-gem 'bootstrap-sass'
+# incorporate this later... gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 
 
