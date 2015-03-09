@@ -47,7 +47,7 @@ var ScheduleContainer = React.createClass({
     this.setState( {rsrcs:  this.copy_ary(rsrcs)}, function (){
       setTimeout( TimePix.scroll_to_tlo,    100 )
       setTimeout( TimePix.set_time_cursor, 1000 )
-      // setTimeout( TimePix.scroll_monitor,   100 )
+      setTimeout( TimePix.scroll_monitor,   100 )
     });
   },
 
@@ -62,7 +62,7 @@ var ScheduleContainer = React.createClass({
 
 
   loadScheduleFromServer: function (t1, t2, inc) { // fka get_data()
-    var full_url = this.make_url_query()
+    var full_url = this.make_url_query(t1, t2, inc)
 
     this.busy    = true;
 
