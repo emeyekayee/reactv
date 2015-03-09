@@ -18,4 +18,5 @@
 //= require justify_tweaks
 //= require turbolinks
 //= require react
+//= require labels_container
 //= require_tree .

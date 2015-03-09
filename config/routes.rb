@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  get "/schedule/index" => "schedule#index"
-  get "/schedule"       => "schedule#schedule"
+  get "/schedule/index"    => "schedule#index"
+  get "/schedule"          => "schedule#schedule"
+  get "/schedule/schedule" => "schedule#schedule" # React URL wrinkle. 
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
