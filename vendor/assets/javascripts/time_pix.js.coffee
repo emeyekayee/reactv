@@ -48,6 +48,11 @@ class @TimePix            # Ultimately, an angular $service
     "left: #{@secs_to_pix_scale(s - @baseTime)}px; " +
     "width: #{@secs_to_pix_scale(e-s)-4}px;"
 
+  @style_geo_hash: (block) ->
+    [s, e] = [block.starttime, block.endtime]             # per margins V
+    left:  "#{@secs_to_pix_scale(s - @baseTime)}px"
+    width: "#{@secs_to_pix_scale(e-s)-4}px"
+
   @row_kind: (tag) ->  # may/may not belong here.
     tag.split('_')[0]
 

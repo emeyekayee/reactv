@@ -43,7 +43,7 @@ var Timespan = React.createClass({
       blocks.reverse()
     }
 
-    while (blocks) {
+    while (blocks.length) {
       old_blocks[how]( this.state.process_fn(blocks.shift().blk) )
     }
 
@@ -72,7 +72,7 @@ var Timespan = React.createClass({
   renderUseBlockNodes: function() {
     return this.state.use_blocks.map( function(block, index) {
       var classes = block.css_classes + ' blockdiv';
-      var style   = TimePix.style_geo( block );
+      var style   = TimePix.style_geo_hash( block );
 
       return (
         <div className={classes} key={index}

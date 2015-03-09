@@ -1,8 +1,15 @@
 /** @jsx React.DOM */
 
+// ============================================================================
+// Hi-lock: ((" ?[T]o ?Do:.*"                                 (0 'accent10 t)))
+// Hi-lock: (("\\(^\\|\\W\\)\\*\\(\\w.*\\w\\)\\*\\(\\W\\|$\\)" (2 'accent3 t)))
+// Hi-lock: end
+// ============================================================================
+
 
 var ScheduleContainer = React.createClass({
   getInitialState: function() {
+    // ToDo: REVIEW lifecycle/content of STATE
     return {
              meta:      {},    // Set later from @init_resources() (maybe).
              rsrcs:     [],    // Defines ordered set of rows.
@@ -16,6 +23,7 @@ var ScheduleContainer = React.createClass({
     TimePix.set_display_parms()
   },
 
+  // ToDo: Check for a Reactjs utility instead.
   // Use this '$.extend({}, obj)' to copy obj.
   // Immutable state is recommended
   copy_ary: function( ary ) {
@@ -28,27 +36,24 @@ var ScheduleContainer = React.createClass({
   init_resources: function () {
     this.init_display_parms()
 
-    // Defines order of rows
-    var rsrcs = UseBlock.rsrcs = TimePix.meta.rsrcs;
-
-    var state = {
-      rsrcs:  this.copy_ary(rsrcs)
-    }
-
     window.TopResourceSchedule = this  // scroll_monitor needs this.
 
-    this.setState( state
-    //                     , function (){
-    //   setTimeout( TimePix.scroll_to_tlo,    100 )
-    //   setTimeout( TimePix.set_time_cursor, 1000 )
-    //   setTimeout( TimePix.scroll_monitor,   100 )
-    // }
-     );
+    // ToDo: REVIEW lifecycle/content of STATE
+    // Defines order of rows
+    // ToDo:    vvvvvvvvvvvvvv  Assignment doesn't belong here (once only)
+    var rsrcs = UseBlock.rsrcs = TimePix.meta.rsrcs;
+
+    // ToDo:    vvvvvvvvvvvvvv  setState doesn't belong here (once only)
+    this.setState( {rsrcs:  this.copy_ary(rsrcs)}, function (){
+      setTimeout( TimePix.scroll_to_tlo,    100 )
+      setTimeout( TimePix.set_time_cursor, 1000 )
+      // setTimeout( TimePix.scroll_monitor,   100 )
+    });
   },
 
 
   make_url_query: function (t1, t2, inc) { // fka make_url
-    var url = this.props.url;   // '/schedule.json' ?
+    var url = this.props.url;
     if (t1 || t2 || inc) {
       url += '?t1=' + t1 + '&t2=' + t2 + '&inc=' + inc
     }
@@ -78,8 +83,9 @@ var ScheduleContainer = React.createClass({
       // TERMINATES BY COMPLETING this.setState() (above) and poking
       // any existing timespan components to incorporate their data
       // from the remaining this.json_data.
-      Object.keys(this.registeredTimespans).forEach( function(rsrc_tag) {
-        this.registeredTimespans[rsrc_tag].add_blocks()
+      var timespans = this.registeredTimespans;
+      Object.keys(timespans).forEach( function(rsrc_tag) {
+        timespans[rsrc_tag].add_blocks()
       });
     })
     .fail( function(xhr, status, err) { // fka error
@@ -122,14 +128,14 @@ var ScheduleContainer = React.createClass({
     var self  = this;
     var rsrcs = this.state.rsrcs;
 
-    //   <CommentForm onCommentSubmit={this.handleCommentSubmit} />
     return (
       <div className="schedule-container">
         <LabelsContainer    sched={self}  rsrcs={rsrcs} />
+        <TimespansContainer sched={self}  rsrcs={rsrcs} />
       </div>
     );
+  //    <CommentForm onCommentSubmit={this.handleCommentSubmit} />
   },
-//      <TimespansContainer sched={this}  rsrcs={this.state.rsrcs} />
 
   componentDidMount: function() {
     this.loadScheduleFromServer();
