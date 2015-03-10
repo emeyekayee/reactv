@@ -73,12 +73,13 @@ var Timespan = React.createClass({
     return this.state.use_blocks.map( function(block, index) {
       var classes = block.css_classes + ' blockdiv';
       var style   = TimePix.style_geo_hash( block );
-
+      var content = {__html: block.label}; // ToDo: Render this safely.
+ 
       return (
         <div className={classes} key={index}
              style={style} >
           <div className="text_locator">
-            <a href="">{block.label}</a>
+            <a href="" dangerouslySetInnerHTML={content}></a>
           </div>
         </div>
       );
