@@ -60,10 +60,9 @@ var Timespan = React.createClass({
 
 
   render: function() {
-    var useBlockNodes = this.renderUseBlockNodes();
     return (
       <div className="timespan">
-          {useBlockNodes}
+          {this.renderUseBlockNodes()}
       </div>
     );
   },

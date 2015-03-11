@@ -53,11 +53,10 @@ var ScheduleContainer = React.createClass({
 
 
   make_url_query: function (t1, t2, inc) { // fka make_url
-    var url = this.props.url;
     if (t1 || t2 || inc) {
-      url += '?t1=' + t1 + '&t2=' + t2 + '&inc=' + inc
+      return this.props.url + '?t1=' + t1 + '&t2=' + t2 + '&inc=' + inc
     }
-    return url
+    return this.props.url
   },
 
 
@@ -125,13 +124,10 @@ var ScheduleContainer = React.createClass({
   // this.state       has top-level data -- meta:, rsrcs:, res_tags:
   // this.json_data   has received block-use data by tag
   render: function() {
-    var self  = this;
-    var rsrcs = this.state.rsrcs;
-
     return (
         <div id="schedule-container">
-          <LabelsContainer    sched={self}  rsrcs={rsrcs} />
-          <TimespansContainer sched={self}  rsrcs={rsrcs} />
+          <LabelsContainer    sched={this}  rsrcs={this.state.rsrcs} />
+          <TimespansContainer sched={this}  rsrcs={this.state.rsrcs} />
         </div>
     );
   //    <CommentForm onCommentSubmit={this.handleCommentSubmit} />
@@ -142,24 +138,6 @@ var ScheduleContainer = React.createClass({
     // setInterval(this.loadScheduleFromServer, this.props.pollInterval);
   }
 });
-
-
-  //     // .done( function(data) { // fka success
-  //     //   this.resource_tags.forEach( function(tag) {
-
-  //     //     // ResourceRow
-  //     //     var controller = this.state.use_block_list_Ctls[tag]
-  //     //     if ( ! controller ) {
-  //     //       console.log( "No resource tag " + key + " in " +
-  //     //         this.state.use_block_list_Ctls );
-  //     //       return
-  //     //     }
-           
-  //     //     // OK, GOT DATA BUT NOT PUT INTO RESOURCE-ROWS YET
-  //     //     // var blocks     = $scope.json_data[key]
-  //     //     // controller.add_blocks( controller, blocks )
-  //     //   })
-  //     // }); // Errors handled above in get_data
 
 
   // handleCommentSubmit: function(comment) {
