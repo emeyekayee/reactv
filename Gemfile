@@ -14,8 +14,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# My gem...
-gem 'scheduled_resource'
+gem 'scheduled_resource', '= 0.0.2'
+# gem 'scheduled_resource', '= 0.0.2', path: '../scheduled_resource'
+# gem 'scheduled_resource', github: 'emeyekayee/scheduled_resource'
 
 # The view experiment...
 gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
@@ -45,6 +46,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'rspec-rails'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'pry-rails'

@@ -1,5 +1,6 @@
 # Needed this here to get the ZTime* classes in time for session.
 require 'scheduled_resource'
+require 'custom_headers'
 
 class ScheduleController < ApplicationController
   include ScheduledResource::Helper
