@@ -24,7 +24,7 @@ var Timespan = React.createClass({
 
 
   new_blocks: function() {
-    return this.props.sched.json_data[this.props.rsrc_tag]
+    return this.props.sched.json_data[this.props.rsrc_tag] || []
   },
 
 
