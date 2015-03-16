@@ -24,25 +24,20 @@ visibleTime: 3.hours
 Resources:
    - ZTimeHeaderDay       -8
    - ZTimeHeaderHour      -8
-   - ZTimeHeaderDay       -5
-   - ZTimeHeaderHour      -5
-#    - Station              60
-#    - Station              2
-#    - Station              3
-#    - Station              703
-#    - Station              709
-# #    - Station              189 190 220
-# #    - Station              550 551
-   # - ZTimeHeaderHour      -8.
-#    - Station              37
-# #                            737
-#    - Station              42
-# #                            738
-#    - Station              756
-#    - Station              757
-#    - Station              49
-# #                           798
-#    - Station              162
-# #                           810
-# #                           738
-
+   # - ZTimeHeaderDay       -5
+   # - ZTimeHeaderHour      -5
+   - Station              60
+   - Station              2
+   - Station              3
+   - Station              709
+   - Station              189 190 220
+   # - Station              550 551
+   - ZTimeHeaderHour      -8.
+   - Station              737 # 37
+#                           
+   - Station              738 # 42
+#                           
+   - Station              756
+   - Station              757
+   - Station              49  # 798
+   - Station              162 # 810

@@ -55,7 +55,7 @@ class Station < ActiveRecord::Base
   def self.decorate_resource( rsrc )
     rid = rsrc.sub_id
     station = find_as_schedule_resource(rid)
-    
+
     station.decorate_resource( rsrc )
   end
 

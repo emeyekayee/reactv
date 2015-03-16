@@ -14,8 +14,8 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'scheduled_resource', '= 0.0.2'
-# gem 'scheduled_resource', '= 0.0.2', path: '../scheduled_resource'
+# gem 'scheduled_resource', '= 0.0.2' # (current for *master* branch)
+gem 'scheduled_resource', path: '../scheduled_resource' # '= 0.0.2',
 # gem 'scheduled_resource', github: 'emeyekayee/scheduled_resource'
 
 # The view experiment...

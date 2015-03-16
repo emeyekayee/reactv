@@ -15,7 +15,7 @@ class @TimePix            # Ultimately, an angular $service
   @baseTime: 0
   @timeWindow: (3 * 3600)
   @pixWindow: 750         # Matching width of #scrolling-container
-
+ 
   # Time range [@tlo..@thi] is where the DOM has data.
   @tlo: null
   @thi: null
@@ -48,6 +48,7 @@ class @TimePix            # Ultimately, an angular $service
     "left: #{@secs_to_pix_scale(s - @baseTime)}px; " +
     "width: #{@secs_to_pix_scale(e-s)-4}px;"
 
+  # Reactjs prefers this variant
   @style_geo_hash: (block) ->
     [s, e] = [block.starttime, block.endtime]             # per margins V
     left:  "#{@secs_to_pix_scale(s - @baseTime)}px"
@@ -99,18 +100,22 @@ class @TimePix            # Ultimately, an angular $service
       l_vis_time = @pix_to_secs sc.scrollLeft()
       r_vis_time = l_vis_time + @timeWindow
 
-      # Two problems here:
-      # - How to get the global reference to the top-level component/controller.
-      # - Use of $apply syntax is specific to AngularJs.
       if      r_vis_time > @thi
-        # RsrcListCtrlScope.$apply RsrcListCtrlScope.more_data
-        TopResourceSchedule.more_data()
+        @expand_data 'more_data'
       else if l_vis_time < @tlo
-        # RsrcListCtrlScope.$apply RsrcListCtrlScope.less_data
-        TopResourceSchedule.less_data()
+        @expand_data 'less_data'
     else
       if new Date() - @scroll_monitor.scroll_timestamp > 1000
         filter_justify_tweaks( sc ) # Try to make scrolled-off content visible
         @scroll_monitor.scroll_timestamp = new Date()
 
     setTimeout @scroll_monitor, 100
+
+
+  # Angular-vs-react issues
+  @expand_data: (method_name) -> 
+    if TopResourceSchedule?
+      TopResourceSchedule[method_name]() 
+    else
+      RsrcListCtrlScope.$apply RsrcListCtrlScope[method_name]
+    return

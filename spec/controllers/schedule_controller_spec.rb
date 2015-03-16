@@ -13,7 +13,8 @@ RSpec.describe ScheduleController, type: :controller do
   describe "GET index" do
 
     it "rebuilds config when reset=true is passed in" do
-      expect(ScheduledResource).to receive(:config_from_yaml)
+      # expect(ScheduledResource).to receive(:config_from_yaml)
+      expect(ScheduledResource::Config).to receive(:from_base)
       get :index, reset: true
     end
 
