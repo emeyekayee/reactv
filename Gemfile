@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use mysql as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -14,17 +14,17 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-# gem 'scheduled_resource', '= 0.0.2' # (current for *master* branch)
-gem 'scheduled_resource', path: '../scheduled_resource' # '= 0.0.2',
+gem 'scheduled_resource', '= 0.0.3' # (for *SeparateConfigClass* branch)
+# gem 'scheduled_resource', path: '../scheduled_resource' # '= 0.0.2',
 # gem 'scheduled_resource', github: 'emeyekayee/scheduled_resource'
+
+gem 'hashie', '~> 2.0.5'
 
 # The view experiment...
 gem 'react-rails', github: 'reactjs/react-rails', branch: 'master'
 
 # incorporate this later... gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-
-gem 'hashie', '~> 2.0.5'
 
 
 # Use jquery as the JavaScript library
@@ -58,4 +58,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

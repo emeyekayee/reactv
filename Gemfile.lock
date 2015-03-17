@@ -10,13 +10,6 @@ GIT
       rails (>= 3.1)
       react-source (~> 0.12)
 
-PATH
-  remote: ../scheduled_resource
-  specs:
-    scheduled_resource (0.0.2)
-      coffee-rails (~> 4.1)
-      rails (~> 4.2)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -166,6 +159,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    scheduled_resource (0.0.3)
+      coffee-rails (~> 4.1)
+      rails (~> 4.2)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -206,13 +202,13 @@ DEPENDENCIES
   hashie (~> 2.0.5)
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2
+  mysql2 (~> 0.3.18)
   pry-rails
   rails (= 4.2.0)
   react-rails!
   rspec-rails
   sass-rails (~> 5.0)
-  scheduled_resource!
+  scheduled_resource (= 0.0.3)
   sdoc (~> 0.4.0)
   spring
   turbolinks
